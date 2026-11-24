@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <UserSecretsId>azureentrastarter-server-3d81b0c4</UserSecretsId>
+    <!-- "Angular and ASP.NET Core" template: the server launches the Angular dev server through SpaProxy -->
+    <SpaRoot>..\azureentrastarter.client</SpaRoot>
+    <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
+    <SpaProxyServerUrl>https://localhost:63431</SpaProxyServerUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="10.0.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="10.0.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AzureEntraStarter.Application\AzureEntraStarter.Application.csproj" />
+    <ProjectReference Include="..\AzureEntraStarter.Domain\AzureEntraStarter.Domain.csproj" />
+    <ProjectReference Include="..\AzureEntraStarter.Infrastructure\AzureEntraStarter.Infrastructure.csproj" />
+    <ProjectReference Include="..\azureentrastarter.client\azureentrastarter.client.esproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="AzureEntraStarter.Server.IntegrationTests" />
+  </ItemGroup>
+
+</Project>

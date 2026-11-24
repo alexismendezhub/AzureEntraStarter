@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.1738743">
+  <PropertyGroup>
+    <StartupCommand>npm start</StartupCommand>
+    <JavaScriptTestFramework>Jasmine</JavaScriptTestFramework>
+    <!-- Allows Visual Studio to run the Angular build -->
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <!-- Folder where Angular writes its output; the Server publish copies it into wwwroot -->
+    <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\azureentrastarter.client\browser\</BuildOutputFolder>
+  </PropertyGroup>
+</Project>

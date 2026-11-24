@@ -1,0 +1,45 @@
+# GitHub Actions CI template. Copy it to .github/workflows/ci.yml in your repository.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  server:
+    runs-on: ubuntu-latest
+    env:
+      # Docker is available on ubuntu-latest: the SQL Server container tests must run (fail instead of skipping).
+      AES_REQUIRE_CONTAINERS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Server tests (incl. SQL Server 2022 in Docker)
+        run: dotnet test AzureEntraStarter.slnx -c Release
+      - name: Vulnerable packages
+        run: |
+          dotnet list AzureEntraStarter.slnx package --vulnerable --include-transitive | tee vulnerable.txt
+          ! grep -q "has the following vulnerable packages" vulnerable.txt
+
+  client:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src/azureentrastarter.client
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install
+      - run: npm audit --audit-level=low
+      - name: Angular tests
+        run: npm run test:ci
+      - name: Production build
+        run: npm run build

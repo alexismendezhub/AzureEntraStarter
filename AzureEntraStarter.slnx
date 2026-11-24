@@ -1,0 +1,22 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/AzureEntraStarter.Application/AzureEntraStarter.Application.csproj" />
+    <Project Path="src/AzureEntraStarter.Domain/AzureEntraStarter.Domain.csproj" />
+    <Project Path="src/AzureEntraStarter.Infrastructure/AzureEntraStarter.Infrastructure.csproj" />
+    <Project Path="src/AzureEntraStarter.Server/AzureEntraStarter.Server.csproj" />
+    <Project Path="src/azureentrastarter.client/azureentrastarter.client.esproj">
+      <Build />
+      <Deploy />
+    </Project>
+  </Folder>
+  <Folder Name="/src/tests/">
+    <Project Path="src/tests/AzureEntraStarter.Infrastructure.UnitTests/AzureEntraStarter.Infrastructure.UnitTests.csproj" />
+    <Project Path="src/tests/AzureEntraStarter.Server.IntegrationTests/AzureEntraStarter.Server.IntegrationTests.csproj" />
+  </Folder>
+</Solution>

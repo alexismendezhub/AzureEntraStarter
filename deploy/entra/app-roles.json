@@ -1,0 +1,9 @@
+[
+  {
+    "allowedMemberTypes": ["User"],
+    "description": "Administrators of AzureEntraStarter: can list users and disable them.",
+    "displayName": "Admin",
+    "isEnabled": true,
+    "value": "Admin"
+  }
+]

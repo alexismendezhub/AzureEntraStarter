@@ -1,0 +1,20 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+TestResults/
+appsettings.*.local.json
+
+## Angular
+src/azureentrastarter.client/node_modules/
+src/azureentrastarter.client/dist/
+src/azureentrastarter.client/.angular/
+src/azureentrastarter.client/out-tsc/
+src/azureentrastarter.client/coverage/
+
+## Publish
+src/AzureEntraStarter.Server/wwwroot/
+publish/
+artifacts/

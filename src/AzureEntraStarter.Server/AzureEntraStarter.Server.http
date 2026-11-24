@@ -1,0 +1,10 @@
+@host = https://localhost:7190
+
+### What the sign-in page can offer
+GET {{host}}/api/auth/config
+
+### Public keys of the access tokens
+GET {{host}}/.well-known/jwks.json
+
+### Readiness (database)
+GET {{host}}/health/ready
